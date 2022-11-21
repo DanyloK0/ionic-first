@@ -1,0 +1,3 @@
+<form [formGroup]="form">
+  <mat-slider thumbLabel min="0" max="100" formControlName="{{key.key}}" (change)="form.get(key.key).setValue($event.value)"></mat-slider>
+</form>

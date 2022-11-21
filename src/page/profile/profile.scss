@@ -1,0 +1,52 @@
+ion-content::part(background) {
+    background: #de542c;
+}
+
+.card{
+    background-color: #ffffff;
+    border-radius: 24px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.profile{
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+}
+.image-card{
+    border-radius: 50%;
+    height: 50px;
+}
+
+.left-col{
+    display:flex;
+    flex-direction:column;
+    align-items: flex-end;
+    color:#de542c
+}
+
+.right-col{
+    display:flex;
+    flex-direction:column;
+}
+
+.avatar{
+    margin-top: -24px;
+    position: fixed;
+    right: 44%;
+}
+
+.edit-btn{
+    position: fixed;
+    border-radius: 50%;
+    right: 37%;
+    margin-top: 0;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+}

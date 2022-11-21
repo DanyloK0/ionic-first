@@ -1,0 +1,52 @@
+<form [formGroup]="formGroup" (ngSubmit)="send(formGroup.value)">
+  <div *ngFor="let field of formGroup.controls | keyvalue: keepOriginalOrder; let i = index">
+
+    <ng-container [ngSwitch]="keys[i].type" class="form-group">
+
+      <ng-container *ngSwitchCase="'password'">
+        <app-input-password [key]="keys[i]" [form]="formGroup"></app-input-password>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'select'">
+        <app-input-select [key]="keys[i]" [form]="formGroup"></app-input-select>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'textarea'">
+        <app-input-textarea [key]="keys[i]" [form]="formGroup"></app-input-textarea>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'datepicker'">
+        <app-input-date-picker [key]="keys[i]" [form]="formGroup"></app-input-date-picker>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'file'">
+        <app-input-file [key]="keys[i]" [form]="formGroup"></app-input-file>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'checkbox'">
+        <app-checkbox [key]="keys[i]" [form]="formGroup"></app-checkbox>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'toggle'">
+        <app-toggle [key]="keys[i]" [form]="formGroup"></app-toggle>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'radio'">
+        <app-radio-button [key]="keys[i]" [form]="formGroup"></app-radio-button>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'slider'">
+        <app-slider [key]="keys[i]" [form]="formGroup"></app-slider>
+      </ng-container>
+
+      <ng-container *ngSwitchDefault>
+        <app-input [key]="keys[i]" [form]="formGroup"></app-input>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <div>
+    <button mat-button [mat-dialog-close]="">Annulla</button>
+    <button type="submit" mat-button [mat-dialog-close]="true" cdkFocusInitial [disabled]="!formGroup.valid">Ok</button>
+  </div>
+</form>

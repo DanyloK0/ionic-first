@@ -1,0 +1,7 @@
+<form [formGroup]="form">
+  <mat-slide-toggle class="toggle-form" formControlName="{{ key.key }}">{{ key.label }}</mat-slide-toggle>
+
+  <mat-error *ngIf="form.get(key.key).hasError('required')">
+    {{key.label}} is <strong>required</strong>
+  </mat-error>
+</form>

@@ -1,0 +1,10 @@
+<div *ngIf="loading" class="loading-container">
+  <mat-progress-spinner color="primary" mode="indeterminate">
+  </mat-progress-spinner>
+</div>
+
+<div [ngClass]="getBodyClass()">
+  <app-sidenav *ngIf="isAuth" (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
+  <app-topbar *ngIf="isAuth" [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"></app-topbar>
+  <router-outlet></router-outlet>
+</div>

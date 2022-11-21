@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+  <mat-form-field class="fullWidth">
+    <mat-label>{{ key.label }}</mat-label>
+    <input [type]="key.type" matInput formControlName="{{ key.key }}">
+    <button *ngIf="form.get(key.key).value" matSuffix mat-icon-button aria-label="Clear" (click)="form.get(key.key).setValue('')">
+      <mat-icon>close</mat-icon>
+    </button>
+
+    <mat-error *ngIf="form.get(key.key).hasError('required')">
+      {{key.label}} is <strong>required</strong>
+    </mat-error>
+
+    <mat-error *ngIf="form.get(key.key).hasError('email') && key.key == 'email'">
+      Please enter a valid email address
+    </mat-error>
+
+  </mat-form-field>
+</form>
+
