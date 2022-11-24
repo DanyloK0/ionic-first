@@ -1,43 +1,41 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subscription } from "rxjs";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import {UtilityService} from "./utility.service";
+import { Observable, Subscription } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UtilityService } from './utility.service';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class CrudService {
-  private apiUrl: string = 'https://apposto.nextre.it/dev/api/';
+  private apiUrl = 'https://apposto.nextre.it/dev/api/';
+  // private apiUrl: string = 'https://apposto.nextre.it/sbb/api/';
   private requestResult: Subscription = new Subscription();
 
   constructor(
-    private utilityService: UtilityService,
-    private http: HttpClient
+    private http: HttpClient,
+    private utilityService: UtilityService
   ) { }
 
   setConfig() {
-    return new HttpHeaders({
-      //'Authorization': 'Bearer ' + [].join(''),
-      'Content-Type': 'application/json'
-    });
+    return new HttpHeaders({});
   }
 
-  getAll(): Observable<any[]> {
+  getAll(path?: string): Observable<any[]> {
     return new Observable<any[]>(observer => {
-      this.requestResult = this.http.get<any[]>(`${this.apiUrl + this.utilityService.getApi()}`, {
+      this.requestResult = this.http.get<any[]>(`${!path ? this.apiUrl + this.utilityService.getApi() : this.apiUrl + path}`, {
         headers: this.setConfig(),
         withCredentials: false,
         responseType: 'json'
       }).subscribe({
-          next: (data: any) => {
-            observer.next(data);
-            console.log(observer, 'observer: crud.service');
-          },
-          error: (err: any) => {
-            observer.error(err);
-          }
+        next: (data: any) => {
+          observer.next(data);
+          console.log(data, 'INGETALL');
+        },
+        error: (err: any) => {
+          observer.error(err);
         }
+      }
       );
     });
   }
@@ -51,7 +49,6 @@ export class CrudService {
       }).subscribe({
           next: (data: any) => {
             observer.next(data);
-            console.log(observer, 'observer: crud.service');
           },
           error: (err: any) => {
             observer.error(err);
@@ -70,7 +67,6 @@ export class CrudService {
       }).subscribe({
           next: (data: any) => {
             observer.next(data);
-            console.log(observer, 'observer: crud.service');
           },
           error: (err: any) => {
             observer.error(err);
@@ -80,18 +76,17 @@ export class CrudService {
     });
   }
 
-  create(element: any): Observable<any> {
+  create(element: any, path?: string): Observable<any> {
     return new Observable<any>(observer => {
-      const body = JSON.stringify(element);
+      const body = element;
 
-      this.http.post<any>(`${this.apiUrl + this.utilityService.getApi()}`, body, {
+      this.http.post<any>(`${!path ? this.apiUrl + this.utilityService.getApi() : this.apiUrl + path}`, body, {
         headers: this.setConfig(),
         withCredentials: false,
         responseType: 'json',
       }).subscribe({
         next: (data: any) => {
           observer.next(data);
-          console.log(observer, 'observer: crud.service');
         },
         error: (err: any) => {
           observer.error(err);
@@ -100,18 +95,17 @@ export class CrudService {
     });
   }
 
-  update(element: any): Observable<any> {
+  update(element: any, path?: string): Observable<any> {
     return new Observable<any>(observer => {
-      const body = JSON.stringify(element);
+      const body = element;
 
-      this.http.put<any>(`${this.apiUrl + this.utilityService.getApi()}`, body, {
+      this.http.put<any>(`${!path ? this.apiUrl + this.utilityService.getApi() : this.apiUrl + path}`, body, {
         headers: this.setConfig(),
         withCredentials: false,
         responseType: 'json',
       }).subscribe({
         next: (data: any) => {
           observer.next(data);
-          console.log(observer, 'observer: crud.service');
         },
         error: (err: any) => {
           observer.error(err);

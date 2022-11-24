@@ -9,11 +9,11 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'shop',
-        loadChildren: () => import('../../page/shop/shop.module').then(m => m.ShopModule)
+        path: 'restaurants',
+        loadChildren: () => import('../../app/features/restaurants/pages/restaurant.module').then(m => m.RestaurantsModule)
       },
       {
-        path: 'shop/:id',
+        path: 'restaurant/:id',
         loadChildren: () => import('../../page/shop-detail/shop-detail.module').then(m => m.ShopDetailModule)
       },
       {
@@ -42,6 +42,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes), HttpClientModule], 
+  imports: [RouterModule.forChild(routes), HttpClientModule],
 })
 export class TabsPageRoutingModule {}

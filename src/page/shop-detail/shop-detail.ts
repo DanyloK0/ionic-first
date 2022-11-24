@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { environment } from 'src/environments/environment';
-import { ShopModule } from '../shop/shop.module';
 import { ShopDetailModule } from './shop-detail.module';
 // import { ShopDetailModule } from './shop-detail.module';
 

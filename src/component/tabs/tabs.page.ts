@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-tabs',
@@ -6,7 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['tabs.page.scss']
 })
 export class TabsPage {
+  user: any = {}
 
-  constructor() {}
+  constructor(
+    private authService: AuthService,
+  ) { }
+  ngOnInit(): void {
+    this.user = this.authService.getUserLogged();
+  }
+
 
 }

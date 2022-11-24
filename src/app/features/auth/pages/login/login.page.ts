@@ -38,26 +38,24 @@ export class LoginPage implements OnInit {
   }
 
   send(form: any) {
-    
+
     if(form.valid) {
-      this.authService.login(form).subscribe((data : any )=> {
-        const token = data.headers.get('Authorization')
+      this.authService.login(form).subscribe((data: any )=> {
+        const token = data.headers.get('Authorization');
         localStorage.setItem('token',token);
-        this.router.navigate(['/shop']);
+        this.router.navigate(['/restaurants']);
       },
       (err: HttpErrorResponse) => {
-        console.log('Username o password errati' , 'error')
+        console.log('Username o password errati' , 'error');
         // this.utilityService.openSnackBar('Username o password errati', 'error')
-      })
+      });
     }
-    
-
   }
 
-  reset(form:any) {
-    this.authService.resetPassword(form).subscribe((data:any)=>{
-      console.log('resetPsw')
-    })
+  reset(form: any) {
+    this.authService.resetPassword(form).subscribe((data: any)=>{
+      console.log('resetPsw');
+    });
   }
 }
 
