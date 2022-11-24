@@ -6,15 +6,19 @@ import { AuthRoutingModule } from './auth-routing.module';
 
 import { AuthComponent } from './auth.component';
 import { SharedModule } from 'src/app/shared/modules/shared.module';
-import { LoginComponent } from './pages/login/login.component';
+import { LoginPage } from './pages/login/login.page';
+import { RegistrationPage } from './pages/registration/registration';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
   declarations: [
     AuthComponent,
-    LoginComponent,
+    LoginPage,
+    RegistrationPage
   ],
   imports: [
+    IonicModule,
     CoreModule,
     SharedModule,
     CommonModule,

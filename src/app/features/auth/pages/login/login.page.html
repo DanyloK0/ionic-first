@@ -1,0 +1,51 @@
+<ion-content class="ion-padding">
+  <h1>Accesso</h1>
+
+<form [formGroup]="loginForm" (ngSubmit)="send(loginForm)">
+  <div>
+    <ion-label>Nome utente</ion-label>
+    <ion-input placeholder="Email" formControlName="username"  name="username" required></ion-input>
+
+  </div>
+  <div>
+    <ion-label>Password</ion-label>
+    <ion-input type="password" formControlName="password" placeholder="Password" name="password" required></ion-input>
+
+  </div>
+
+  <div class="double-row">
+      <ion-checkbox></ion-checkbox>
+      <ion-label>Ricordami</ion-label>
+      <ion-button id="open-modal" fill="clear" >Password dimenticata?</ion-button>
+  </div>
+  <ion-button type="submit" expand="block" color="light">ACCEDI</ion-button>
+
+  <ion-label class="centered">Oppure accedi con</ion-label>
+
+  <div class="double-row">
+      <ion-button expand="block" color="#a64123"><ion-icon slot="start" name="logo-google"></ion-icon>Google</ion-button>
+      <ion-button expand="block" color="#a64123"><ion-icon slot="start" name="logo-facebook"></ion-icon>Facebook</ion-button>
+  </div>
+
+    <ion-label class="centered">Nuovo utente?</ion-label>
+    <ion-button expand="block" routerLink="/auth/registration" color="dark" >REGISTRATI</ion-button>
+</form>
+
+
+
+</ion-content>
+<ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.5" [breakpoints]="[0, 0.25, 0.5, 0.75]">
+<ng-template>
+  <ion-content class="ion-padding">
+    <ion-icon name="lock-closed-outline"></ion-icon>
+    <h2 class="title">Hai dimenticato la password?</h2>
+    <p>Inserisci il tuo indirizzo Email e ti invieremo le istruzioni per il reset della password</p>
+    <form [formGroup]="forgotForm" (ngSubmit)="reset(forgotForm)">
+      <ion-label>Email</ion-label>
+      <ion-input placeholder="Email" name="email" formControlName="email" required></ion-input>
+      <ion-button type="submit"  expand="block" color="light" >RECUPERA PASSWORD</ion-button>
+    </form>
+  </ion-content>
+</ng-template>
+</ion-modal>
+

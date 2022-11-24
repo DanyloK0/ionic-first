@@ -8,7 +8,6 @@ ion-content::part(background) {
     margin-left: 0;
     margin-right: 0;
     margin-bottom: 8px;
-    position: relative;
 }
 
 .profile{
@@ -34,19 +33,19 @@ ion-content::part(background) {
 }
 
 .avatar{
-    margin-top: -24px;
-    position: fixed;
-    right: 44%;
+    display: flex;
+    justify-content: center;
+    padding: 8px;
 }
 
 .edit-btn{
     position: fixed;
-    border-radius: 50%;
-    right: 37%;
-    margin-top: 0;
+    right: 35%;
+    top: 16%;
 }
 
 .title{
     display: flex;
     justify-content: center;
+    color:#de542c ;
 }

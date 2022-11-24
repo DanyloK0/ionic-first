@@ -34,6 +34,18 @@ export class AuthService {
     return this.http.post<any>(`${this.apiUrl}authentication/logout`, {})
   }
 
+  resetPassword(form: any){
+    const body = {
+      email: form.value.email,
+    }
+    return this.http.post<any>(`${this.apiUrl}authentication/reset-password`, body, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      observe: 'response'
+    })
+  }
+
   getUserLogged(){
     const token = localStorage.getItem('token')
     if(token){
