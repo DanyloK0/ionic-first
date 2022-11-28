@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { UserComponent } from './user.component';
-import { UsersComponent } from "./pages/users/users.component";
+import { UsersPage } from "./pages/users/users.page";
 
 const routes: Routes = [
-  { path: '', component: UserComponent, children:
+  { path: '', component: UsersPage, children:
     [
-      { path: '', redirectTo: '', pathMatch: 'full', component: UsersComponent },
-      { path: '', component: UsersComponent }
+      { path: '', redirectTo: '', pathMatch: 'full', component: UsersPage },
+      { path: '', component: UsersPage }
     ]
   }
 ];

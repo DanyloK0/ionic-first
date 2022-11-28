@@ -3,12 +3,13 @@
 // import {HelpMessage} from './../../features/help-message/models/help-message.model';
 // import {Notification} from './../../features/notification/models/notification.model';
 // import {User} from './../../features/user/models/user.model';
-// import {Restaurant} from '../../features/restaurant/models/reasturant.model';
 // import {Credit} from "../../features/credit/models/credit.model";
 // import {Tutorial} from "../../features/tutorial/models/tutorial.model";
 
 import { Admin } from "src/app/features/admin/models/admin";
 import { User } from "src/app/features/user/models/user.model";
+import { RestaurantsModule } from 'src/app/features/restaurants/pages-old/restaurant.module';
+import { Restaurant } from "src/app/features/restaurants/models/reasturant.model";
 
 export const urlMapping: { [k: string]: MappingConfig } = {
   '/admin': {
@@ -16,11 +17,11 @@ export const urlMapping: { [k: string]: MappingConfig } = {
     api: 'admin',
     mask: ''
   },
-  // '/restaurant': {
-  //   model: Restaurant,
-  //   api: 'restaurant',
-  //   mask: ''
-  // },
+  '/restaurants': {
+    model: Restaurant,
+    api: 'restaurant',
+    mask: ''
+  },
   '/user': {
     model: User,
     api: 'user',

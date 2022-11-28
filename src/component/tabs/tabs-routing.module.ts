@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: 'restaurants',
-        loadChildren: () => import('../../app/features/restaurants/pages/restaurant.module').then(m => m.RestaurantsModule)
+        loadChildren: () => import('../../app/features/restaurants/pages/restaurants/restaurants.module').then(m => m.RestaurantsPageModule)
       },
       {
         path: 'restaurant/:id',

@@ -5,6 +5,26 @@ const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: 'auth', loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule) },
   { path: '', loadChildren: () => import('../component/tabs/tabs.module').then(m => m.TabsPageModule)},
+  {
+    path: 'restaurants',
+    loadChildren: () => import('./features/restaurants/pages/restaurants/restaurants.module').then( m => m.RestaurantsPageModule)
+  },
+  {
+    path: 'user',
+    loadChildren: () => import('./features/user/user.module').then( m => m.UserModule)
+  },
+  {
+    path: 'notification',
+    loadChildren: () => import('./features/notification/notification.module').then( m => m.NotificationPageModule)
+  },
+  {
+    path: 'occasion',
+    loadChildren: () => import('./features/occasion/occasion.module').then( m => m.OccasionPageModule)
+  },
+  {
+    path: 'reservation',
+    loadChildren: () => import('./features/reservation/reservation.module').then( m => m.ReservationPageModule)
+  },
 ];
 @NgModule({
   imports: [

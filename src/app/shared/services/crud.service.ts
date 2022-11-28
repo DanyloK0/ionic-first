@@ -8,7 +8,7 @@ import { UtilityService } from './utility.service';
   providedIn: 'root'
 })
 export class CrudService {
-  private apiUrl = 'https://apposto.nextre.it/dev/api/';
+  private apiUrl: string = 'https://apposto.nextre.it/dev/api/';
   // private apiUrl: string = 'https://apposto.nextre.it/sbb/api/';
   private requestResult: Subscription = new Subscription();
 
@@ -23,6 +23,7 @@ export class CrudService {
 
   getAll(path?: string): Observable<any[]> {
     return new Observable<any[]>(observer => {
+      debugger
       this.requestResult = this.http.get<any[]>(`${!path ? this.apiUrl + this.utilityService.getApi() : this.apiUrl + path}`, {
         headers: this.setConfig(),
         withCredentials: false,
@@ -34,6 +35,26 @@ export class CrudService {
         },
         error: (err: any) => {
           observer.error(err);
+        }
+      }
+      );
+    });
+  }
+
+  getRestaurants(path?: string): Observable<any[]> {
+    return new Observable<any[]>(observer => {
+      this.requestResult = this.http.get<any[]>(`${this.apiUrl + 'restaurant'}`, {
+        headers: this.setConfig(),
+        withCredentials: false,
+        responseType: 'json'
+      }).subscribe({
+        next: (data: any) => {
+          observer.next(data);
+          console.log(data, 'INGETALL');
+        },
+        error: (err: any) => {
+          observer.error(err);
+          console.log('ERRORE', err)
         }
       }
       );
