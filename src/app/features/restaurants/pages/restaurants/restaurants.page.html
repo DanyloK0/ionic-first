@@ -1,8 +1,7 @@
 <app-header></app-header>
 
 <ion-content class="body container">
-    restaurants
-    <ion-card class="card">
+    <ion-card class="card" *ngFor="let i of restaurants" [routerLink]="[i.id]" button>
         <ion-grid>
             <ion-row>
                 <ion-col size="2">
@@ -10,9 +9,9 @@
                     </ion-avatar>
                 </ion-col>
                 <ion-col size="10">
-                    <ion-card-title class="title">Titolo<ion-chip color="warning">342m</ion-chip></ion-card-title>
+                    <ion-card-title class="title">{{i.name}}<ion-chip color="warning">342m</ion-chip></ion-card-title>
                     <ion-card-content class="adress">
-                        via milano
+                        {{i.restaurantAddress}}
                     </ion-card-content>
                 </ion-col>
             </ion-row>

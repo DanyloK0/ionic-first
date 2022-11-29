@@ -1,0 +1,29 @@
+<ion-content class="ion-padding">
+
+        <ion-card class="card" >
+                <div class="avatar">
+                        <ion-avatar>
+                                <img />
+                        </ion-avatar>
+
+                </div>
+                <ion-card-title class="title">{{detail?.restaurantName}}<ion-chip color="warning"></ion-chip></ion-card-title>
+                <ion-card-content class="adress">{{detail?.restaurantAddress}}</ion-card-content>
+        </ion-card>
+
+        <h1>Selected Date</h1>
+
+        <div class="double-row">
+                <div class="first-element">
+                        <ion-button fill="clear"><ion-icon slot="start" name="people-sharp"></ion-icon>21</ion-button>
+                </div>
+                <div>
+                        <ion-button fill="clear"><ion-icon slot="start" name="star-sharp"></ion-icon>7</ion-button>
+                </div>
+        </div>
+
+        <ion-datetime [firstDayOfWeek]="1" minuteValues="0,15,30,45">  </ion-datetime>
+
+        <!-- <ion-datetime presentation="date-time" minuteValues="0,15,30,45" [preferWheel]="true"></ion-datetime> -->
+
+</ion-content>

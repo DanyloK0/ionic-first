@@ -8,7 +8,6 @@
 
 import { Admin } from "src/app/features/admin/models/admin";
 import { User } from "src/app/features/user/models/user.model";
-import { RestaurantsModule } from 'src/app/features/restaurants/pages-old/restaurant.module';
 import { Restaurant } from "src/app/features/restaurants/models/reasturant.model";
 
 export const urlMapping: { [k: string]: MappingConfig } = {

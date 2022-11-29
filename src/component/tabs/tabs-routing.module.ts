@@ -13,8 +13,8 @@ const routes: Routes = [
         loadChildren: () => import('../../app/features/restaurants/pages/restaurants/restaurants.module').then(m => m.RestaurantsPageModule)
       },
       {
-        path: 'restaurant/:id',
-        loadChildren: () => import('../../page/shop-detail/shop-detail.module').then(m => m.ShopDetailModule)
+        path: 'restaurants/:id',
+        loadChildren: () => import('../../app/features/restaurants/restaurant-detail/restaurant-detail.module').then( m => m.RestaurantDetailPageModule)
       },
       {
         path: 'reservation',
@@ -31,7 +31,7 @@ const routes: Routes = [
       {
         path: 'profile',
         loadChildren: () => import('../../page/profile/profile.module').then(m => m.ProfileModule)
-      }
+      },
     ]
   },
   {

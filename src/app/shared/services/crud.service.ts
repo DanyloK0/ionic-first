@@ -23,7 +23,6 @@ export class CrudService {
 
   getAll(path?: string): Observable<any[]> {
     return new Observable<any[]>(observer => {
-      debugger
       this.requestResult = this.http.get<any[]>(`${!path ? this.apiUrl + this.utilityService.getApi() : this.apiUrl + path}`, {
         headers: this.setConfig(),
         withCredentials: false,
@@ -50,7 +49,25 @@ export class CrudService {
       }).subscribe({
         next: (data: any) => {
           observer.next(data);
-          console.log(data, 'INGETALL');
+        },
+        error: (err: any) => {
+          observer.error(err);
+          console.log('ERRORE', err)
+        }
+      }
+      );
+    });
+  }
+
+  getRestaurantsDetail(id?: any): Observable<any[]> {
+    return new Observable<any[]>(observer => {
+      this.requestResult = this.http.get<any[]>(`${this.apiUrl + 'restaurant' + '/' + id}`, {
+        headers: this.setConfig(),
+        withCredentials: false,
+        responseType: 'json'
+      }).subscribe({
+        next: (data: any) => {
+          observer.next(data);
         },
         error: (err: any) => {
           observer.error(err);

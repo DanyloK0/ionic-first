@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     FormsModule,
     TabsPageRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   declarations: [TabsPage],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]

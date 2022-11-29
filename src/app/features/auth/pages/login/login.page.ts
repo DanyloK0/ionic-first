@@ -42,10 +42,8 @@ export class LoginPage implements OnInit {
     if(form.valid) {
       this.authService.login(form).subscribe((data: any )=> {
         const token = data.headers.get('Authorization');
-        console.log(data.headers.get('Authorization'))
         localStorage.setItem('token',token);
         this.router.navigate(['/restaurants']);
-        console.log(token, 'LOGGATO')
       },
       (err: HttpErrorResponse) => {
         console.log('Username o password errati' , 'error');
