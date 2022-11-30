@@ -18,19 +18,19 @@ const routes: Routes = [
       },
       {
         path: 'reservation',
-        loadChildren: () => import('../../page/reservation/reservation.module').then(m => m.ReservationModule)
+        loadChildren: () => import('../../app/features/reservation/reservation.module').then(m => m.ReservationPageModule)
       },
       {
         path: 'notification',
-        loadChildren: () => import('../../page/notification/notification.module').then(m => m.NotificationModule)
+        loadChildren: () => import('../../app/features/notification/notification.module').then(m => m.NotificationPageModule)
       },
       {
         path: 'occasion',
-        loadChildren: () => import('../../page/occasion/occasion.module').then(m => m.OccasionModule)
+        loadChildren: () => import('../../app/features/occasion/occasion.module').then(m => m.OccasionPageModule)
       },
       {
         path: 'profile',
-        loadChildren: () => import('../../page/profile/profile.module').then(m => m.ProfileModule)
+        loadChildren: () => import('../..//app/features/profile/profile.module').then(m => m.ProfilePageModule)
       },
     ]
   },

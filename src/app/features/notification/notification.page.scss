@@ -1,0 +1,13 @@
+ion-content::part(background) {
+    background: #de542c;
+}
+ion-card{
+    background-color: #ffffff;
+    border-radius: 16px;
+}
+
+    .title{
+        display: flex;
+        justify-content: center;
+        color:#de542c ;
+    }

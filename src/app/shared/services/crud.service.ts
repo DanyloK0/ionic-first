@@ -78,6 +78,25 @@ export class CrudService {
     });
   }
 
+  getNotifications(path?: string): Observable<any[]> {
+    return new Observable<any[]>(observer => {
+      this.requestResult = this.http.get<any[]>(`${this.apiUrl + 'notification'}`, {
+        headers: this.setConfig(),
+        withCredentials: false,
+        responseType: 'json'
+      }).subscribe({
+        next: (data: any) => {
+          observer.next(data);
+        },
+        error: (err: any) => {
+          observer.error(err);
+          console.log('ERRORE', err)
+        }
+      }
+      );
+    });
+  }
+
   getById(id: any): Observable<any> {
     return new Observable<any>(observer => {
       this.requestResult = this.http.get<any>(`${this.apiUrl + this.utilityService.getApi() + '/' + id}`, {

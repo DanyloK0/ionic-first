@@ -29,6 +29,10 @@ const routes: Routes = [
     path: 'restaurants/:id',
     loadChildren: () => import('./features/restaurants/restaurant-detail/restaurant-detail.module').then( m => m.RestaurantDetailPageModule)
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./features/profile/profile.module').then( m => m.ProfilePageModule)
+  },
 ];
 @NgModule({
   imports: [

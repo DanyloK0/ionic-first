@@ -12,14 +12,9 @@ export class RestaurantsPage {
   
   restaurants: any[] = [];
 
-  constructor(
-    private service: CrudService, private loadingCtrl: LoadingController
-  ) {
-  }
+  constructor( private service: CrudService, private loadingCtrl: LoadingController ) {}
 
-  ngOnInit(){
-    this.getAllRestaurants();
-  }
+  ngOnInit(){ this.getAllRestaurants() }
 
   async getAllRestaurants() {
     const loading = await this.loadingCtrl.create({

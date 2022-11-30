@@ -1,0 +1,25 @@
+ion-content::part(background) {
+    background: #de542c;
+}
+
+.header{
+    font: 24px --primary-orange;
+    color: #de542c;
+    align-items: center;
+}
+
+ion-card{
+    background-color: #ffffff;
+    border-radius: 16px;
+}
+.double-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.title{
+    display: flex;
+    justify-content: center;
+    color:#de542c ;
+}

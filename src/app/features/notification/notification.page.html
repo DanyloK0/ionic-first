@@ -1,9 +1,14 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>notification</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+  
+  <ion-card>
+    <h2 class="title">NOTIFICHE</h2>
+    <ion-item *ngFor="let i of notifications">
+      <ion-label>
+        <p>{{i.title}}</p>
+        <p>{{i.description}}</p>
+      </ion-label>
+      <p>20/12/2022</p>
+    </ion-item>
+  </ion-card>
 
 </ion-content>

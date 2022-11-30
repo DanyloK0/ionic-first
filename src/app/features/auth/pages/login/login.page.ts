@@ -53,8 +53,9 @@ export class LoginPage implements OnInit {
   }
 
   reset(form: any) {
+    console.log('resetPsw');
     this.authService.resetPassword(form).subscribe((data: any)=>{
-      console.log('resetPsw');
+      console.log(data)
     });
   }
 }
