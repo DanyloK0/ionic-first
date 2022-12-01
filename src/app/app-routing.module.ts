@@ -9,10 +9,6 @@ const routes: Routes = [
     path: 'restaurants',
     loadChildren: () => import('./features/restaurants/pages/restaurants/restaurants.module').then( m => m.RestaurantsPageModule)
   },
-  // {
-  //   path: 'user',
-  //   loadChildren: () => import('./features/user/user.module').then( m => m.UserModule)
-  // },
   {
     path: 'notification',
     loadChildren: () => import('./features/notification/notification.module').then( m => m.NotificationPageModule)

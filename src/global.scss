@@ -30,6 +30,7 @@ h1{
     font-size: xx-large;
     color: #ffffff;
     margin: 24px 0px 24px 0px;
+    font-weight: bold;
 }
 
 h2{
@@ -40,11 +41,31 @@ h2{
 
 h3{
     font-size: large;
-    // color:#000000
 }
+
 h4{
     font-size: medium;
     font-weight: bold;
     color:#de542c;
     margin-left: 16px;
+}
+
+ion-input {
+    --color: #fff;
+    border-bottom: solid #fff 1px;
+    margin-bottom: 16px;
+}
+
+ion-checkbox {
+    --size: 16px;
+    --background:#de542c;
+    --background-checked: #de542c;
+    --border-color: #fff;
+    --border-color-checked: #fff;
+    --border-radius: 4px;
+    margin-right: 8px;
+}
+
+ion-content::part(background) {
+    background: #de542c;
 }

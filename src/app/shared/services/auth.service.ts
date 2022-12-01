@@ -2,6 +2,7 @@ import { Observable, Subscription } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import jwt_decode from 'jwt-decode';
+import { User } from 'src/app/features/profile/models/user.model';
 
 
 @Injectable({
@@ -34,9 +35,9 @@ export class AuthService {
     })
   }
 
-  resetPassword(email: string): Observable<any>{
+  resetPassword(form: any){
     const body = {
-      email: email,
+      email: form.value.email,
     }
     return this.http.post<any>(`${this.apiUrl}authentication/reset-password`, body, {
       headers: new HttpHeaders({
@@ -62,25 +63,25 @@ export class AuthService {
     }
   }
 
-  // getUserById(id: any){
-  //   return new Observable<User>(observer => {
-  //     this.requestResult = this.http.get<any>(`${this.apiUrl + 'admin/' + id}`, {
-  //       headers: new HttpHeaders({
-  //         'Content-Type': 'application/json'
-  //       }),
-  //       withCredentials: false,
-  //       responseType: 'json'
-  //     }).subscribe({
-  //         next: (data: any) => {
-  //           observer.next(data);
-  //         },
-  //         error: (err: any) => {
-  //           observer.error(err);
-  //         }
-  //       }
-  //     );
-  //   });
-  // }
+  getUserById(id: any){
+    return new Observable<User>(observer => {
+      this.requestResult = this.http.get<any>(`${this.apiUrl + 'admin/' + id}`, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        }),
+        withCredentials: false,
+        responseType: 'json'
+      }).subscribe({
+          next: (data: any) => {
+            observer.next(data);
+          },
+          error: (err: any) => {
+            observer.error(err);
+          }
+        }
+      );
+    });
+  }
 
   getToken(){
     const token = localStorage.getItem('token')

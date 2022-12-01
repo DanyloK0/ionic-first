@@ -1,29 +1,4 @@
-ion-content::part(background) {
-    background: #de542c;
-}
 
-ion-button{
-    color:#fff
-}
-
-ion-checkbox {
-    --size: 16px;
-    --background:#de542c;
-    --background-checked: #de542c;
-    --border-color: #fff;
-    --border-color-checked: #fff;
-    --border-radius: 4px;
-    margin-right: 8px;
-    margin-left: 8px;
-}
-
-
-ion-input {
-    --color: #fff;
-    border-bottom: solid #fff;
-    margin-bottom: 16px;
-
-}
 
 ion-label{
     color: #fff;
@@ -33,17 +8,34 @@ ion-label{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-bottom: 16px;
+
 }
 
 .centered{
     display: flex;
     justify-content: center;
-    margin: 16px;
+    margin-top: 24px;
+    margin-bottom: 16px;
     align-items: flex-end;
 }
 .title{
     display: flex;
     justify-content: center;
 }
+
+ion-item{
+    --background: #de542c;
+    --color:#fff;
+    border: 0;
+}
+
+ion-input {
+    --color: #fff;
+    --border-bottom: solid #fff 1px;
+    --margin-bottom: 16px;
+}
+
+
 
