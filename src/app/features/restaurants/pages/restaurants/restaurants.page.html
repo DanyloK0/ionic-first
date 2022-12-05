@@ -1,5 +1,7 @@
-<app-header></app-header>
 
+<ion-header>
+    <ion-searchbar class="custom" placeholder="Cerca per nome o località"></ion-searchbar>
+</ion-header>
 <ion-content class="body container">
     <ion-card class="card" *ngFor="let i of restaurants" [routerLink]="[i.id]" button>
         <ion-grid>

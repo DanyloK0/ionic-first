@@ -30,6 +30,7 @@ export class RestaurantsPage {
         console.log(this.restaurants);
       },
       error: (err: any) => {
+        loading.dismiss();
         console.log(err)
       }
     })

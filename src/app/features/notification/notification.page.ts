@@ -29,6 +29,7 @@ export class NotificationPage implements OnInit {
         console.log(this.notifications);
       },
       error: (err: any) => {
+        loading.dismiss();
         console.log(err)
       }
     })
