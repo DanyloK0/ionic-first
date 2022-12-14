@@ -3,11 +3,14 @@
     <ion-searchbar class="custom" placeholder="Cerca per nome o località"></ion-searchbar>
 </ion-header>
 <ion-content class="body container">
+
+    <div id="mapbox"></div>
     <ion-card class="card" *ngFor="let i of restaurants" [routerLink]="[i.id]" button>
         <ion-grid>
             <ion-row>
                 <ion-col size="2">
                     <ion-avatar>
+                        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
                     </ion-avatar>
                 </ion-col>
                 <ion-col size="10">

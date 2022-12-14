@@ -5,8 +5,11 @@
 export const environment = {
   production: false,
   apiKey:'3bbbac522bdaab1a2441a30693ef8fa7',
-  baseUrl:'https://api.themoviedb.org/3',
-  images: 'http://image.tmdb.org/t/p'
+  // baseUrl:'mapbox://styles/danylok/clbmhb2fo000816qtvn3m9vdl',
+  images: 'http://image.tmdb.org/t/p',
+  mapbox: {
+		accessToken: 'pk.eyJ1IjoiZGFueWxvayIsImEiOiJjbGJtOXoxZmEwMnMzM29tcXUyODlpZG1mIn0.n8jUsPsLlxpWM0WWOOn-8Q'
+	},
 };
 
 /*

@@ -9,7 +9,7 @@ import { CrudService } from 'src/app/shared/services/crud.service';
   styleUrls: ['./restaurant-detail.page.scss'],
 })
 export class RestaurantDetailPage implements OnInit {
-  detail= null;
+  detail = null;
 
   constructor(private route: ActivatedRoute, private service: CrudService, private loadingCtrl: LoadingController) { }
 

@@ -3,7 +3,7 @@
         <ion-card class="card" >
                 <div class="avatar">
                         <ion-avatar>
-                                <img />
+                                <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
                         </ion-avatar>
 
                 </div>
@@ -11,17 +11,85 @@
                 <ion-card-content class="adress">{{detail?.restaurantAddress}}</ion-card-content>
         </ion-card>
 
-        <h1>Selected Date</h1>
+        <ion-card class="card">
+                <ion-grid>
+                        <ion-row>
+                                <ion-col size="2">
+                                <ion-avatar>
+                                        <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                                </ion-avatar>
+                                </ion-col>
+                                <ion-col size="10">
+                                <ion-card-title class="title">{{detail?.restaurantName}}<ion-chip color="warning">342m</ion-chip></ion-card-title>
+                                <ion-card-content class="adress">
+                                        {{detail?.restaurantAddress}}
+                                </ion-card-content>
+                                </ion-col>
+                        </ion-row>
+                </ion-grid>
+        </ion-card>
 
-        <div class="double-row">
+        <h1 >
+                <ion-grid>
+                        <ion-row>
+                                <ion-datetime-button datetime="datetime"></ion-datetime-button>
+                                <ion-datetime-button datetime="time"></ion-datetime-button>
+                        </ion-row>
+                </ion-grid>
+        </h1>
+
+        <!-- <div class="double-row">
                 <div class="first-element">
                         <ion-button fill="clear"><ion-icon slot="start" name="people-sharp"></ion-icon>21</ion-button>
                 </div>
                 <div>
                         <ion-button fill="clear"><ion-icon slot="start" name="star-sharp"></ion-icon>7</ion-button>
                 </div>
-        </div>
-        <ion-datetime [firstDayOfWeek]="1" minuteValues="0,15,30,45">  </ion-datetime>
+        </div> -->
+
+        <ion-modal [keepContentsMounted]="true">
+                <ng-template> 
+                        <ion-datetime id="datetime" presentation="date" [firstDayOfWeek]="1"></ion-datetime>
+                </ng-template>
+        </ion-modal>
+
+        <ion-card>
+                <ion-grid>
+                        <ion-row>
+                                <ion-col>
+                                        <p>Servizio</p>
+                                </ion-col>
+                                <ion-col>
+                                        <ion-list>
+                                                <ion-item>
+                                                        <ion-select interface="action-sheet" placeholder="Seleziona il Servizio">
+                                                                <ion-select-option value="Colazione">Colazione</ion-select-option>
+                                                                <ion-select-option value="Pranzo">Pranzo</ion-select-option>
+                                                                <ion-select-option value="Aperitivo">Aperitivo</ion-select-option>
+                                                                <ion-select-option value="Cena">Cena</ion-select-option>
+                                                        </ion-select>
+                                                </ion-item>
+                                        </ion-list>
+                                </ion-col>
+                        </ion-row>
+                        <ion-row>
+                                <ion-col>
+                                        <p>Orario</p>
+                                </ion-col>
+                                <ion-col>
+                                        <h1><ion-datetime-button datetime="time"></ion-datetime-button></h1>
+                                        <ion-modal [keepContentsMounted]="true">
+                                                <ng-template> 
+                                                        <ion-datetime id="time" presentation="time" ></ion-datetime>
+                                                </ng-template>
+                                        </ion-modal>
+                                </ion-col>
+                        </ion-row>
+                </ion-grid>
+        </ion-card>
+        <!-- <ion-datetime  minuteValues="0,15,30,45">  -->
+                <!-- <span slot="title">Select a Reservation Date</span> -->
+        <!-- </ion-datetime> -->
 
 
         <!-- <ion-datetime presentation="date-time" minuteValues="0,15,30,45" [preferWheel]="true"></ion-datetime> -->

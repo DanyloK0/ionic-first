@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
 import { CrudService } from 'src/app/shared/services/crud.service';
-import { RestaurantService } from 'src/app/shared/services/restaurant.service';
+import * as mapboxgl from 'mapbox-gl';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-restaurants',
@@ -9,12 +10,25 @@ import { RestaurantService } from 'src/app/shared/services/restaurant.service';
   styleUrls: ['./restaurants.page.scss'],
 })
 export class RestaurantsPage {
-  
+  private mapbox: mapboxgl.Map;
   restaurants: any[] = [];
 
-  constructor( private service: CrudService, private loadingCtrl: LoadingController ) {}
+  constructor( private service: CrudService, private loadingCtrl: LoadingController ) {
+		mapboxgl.accessToken = environment.mapbox.accessToken;
+  }
 
-  ngOnInit(){ this.getAllRestaurants() }
+  ngOnInit(){
+    this.getAllRestaurants();
+
+    this.mapbox = new mapboxgl.Map({
+			container: 'mapbox',
+			style: `mapbox://styles/danylok/clbmhb2fo000816qtvn3m9vdl`,
+			zoom: 15,
+			center: [ 9.190530, 45.46395 ],
+      
+		});
+    
+  }
 
   async getAllRestaurants() {
     const loading = await this.loadingCtrl.create({
@@ -27,7 +41,6 @@ export class RestaurantsPage {
       next: (data: any) => {
         loading.dismiss()
         this.restaurants = data.list;
-        console.log(this.restaurants);
       },
       error: (err: any) => {
         loading.dismiss();
@@ -43,4 +56,5 @@ export class RestaurantsPage {
   updateList(list: any) {
     this.restaurants = list;
   }
+
 }
