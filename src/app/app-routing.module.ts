@@ -29,6 +29,14 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('./features/profile/profile.module').then( m => m.ProfilePageModule)
   },
+  {
+    path: 'registration',
+    loadChildren: () => import('./features/auth/pages/registration/registration.module').then( m => m.RegistrationPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./features/auth/pages/login/login.module').then( m => m.LoginPageModule)
+  },
 ];
 @NgModule({
   imports: [

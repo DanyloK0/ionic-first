@@ -3,34 +3,31 @@
 
 <form [formGroup]="loginForm" (ngSubmit)="send(loginForm)">
   <div>
-    <ion-label>Nome utente</ion-label>
-    <ion-input formControlName="username" name="username" required></ion-input>
-  </div>
-  
-  <div>
-    <ion-label>Password</ion-label>
-    <ion-input type="password" formControlName="password" name="password" required></ion-input>
+    <ion-label>Email</ion-label>
+    <ion-input formControlName="email" name="email" required></ion-input>
   </div>
 
+  <div class="password">
+    <ion-label> Password </ion-label>
+      <ion-icon [name]="pwdIcon" (click)="togglePwd()" > </ion-icon>
+  </div>
+    <ion-input  [type]="showPwd ? 'text' : 'password'" formControlName="password" > </ion-input>
+
   <div class="double-row">
-    <ion-item>
       <ion-checkbox></ion-checkbox>
-      <ion-label>Ricordami</ion-label>
-    </ion-item>
+      <ion-label >Ricordami</ion-label>
       <ion-button id="open-modal" fill="clear" color="light">Password dimenticata?</ion-button>
   </div>
   <ion-button type="submit" expand="block" color="light">ACCEDI</ion-button>
 
-  <ion-label class="centered">Oppure accedi con</ion-label>
+  <p class="text">Oppure accedi con</p>
 
   <div class="double-row">
       <ion-button expand="block" class="social"><ion-icon slot="start" name="logo-google"></ion-icon>Google</ion-button>
       <ion-button expand="block"><ion-icon slot="start" name="logo-facebook"></ion-icon>Facebook</ion-button>
   </div>
-  <div>
-    <ion-label class="centered">Nuovo utente?</ion-label>
-    <ion-button expand="block" routerLink="/auth/registration" color="dark" >REGISTRATI</ion-button>
-  </div>
+    <p class="text">Nuovo utente?</p>
+    <ion-button expand="block" routerLink="/registration" color="dark">REGISTRATI</ion-button>
 </form>
 
 
@@ -38,13 +35,12 @@
 <ion-modal #modal trigger="open-modal" [initialBreakpoint]="0.5" [breakpoints]="[0, 0.25, 0.5, 0.75]">
 <ng-template>
   <ion-content class="ion-padding">
-    <ion-icon name="lock-closed-outline"></ion-icon>
-    <h3 class="title">Hai dimenticato la password?</h3>
-    <p >Inserisci il tuo indirizzo Email e ti invieremo le istruzioni per il reset della password</p>
+    <h3 class="text">Hai dimenticato la password?</h3>
+    <div class="text"><p>Inserisci il tuo indirizzo Email e ti invieremo le istruzioni per il reset della password</p></div>
     <form [formGroup]="forgotForm" (ngSubmit)="reset(forgotForm)">
       <ion-label>Email</ion-label>
       <ion-input name="email" formControlName="email" required></ion-input>
-      <ion-button type="submit"  expand="block" color="light" >RECUPERA PASSWORD</ion-button>
+      <ion-button type="submit"  expand="block" color="dark">RECUPERA PASSWORD</ion-button>
     </form>
   </ion-content>
 </ng-template>

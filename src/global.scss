@@ -56,6 +56,10 @@ ion-input {
     margin-bottom: 16px;
 }
 
+ion-label{
+    color: #fff;
+}
+
 ion-checkbox {
     --size: 16px;
     --background:#de542c;
@@ -63,9 +67,26 @@ ion-checkbox {
     --border-color: #fff;
     --border-color-checked: #fff;
     --border-radius: 4px;
-    margin-right: 8px;
 }
 
 ion-content::part(background) {
     background: #de542c;
+}
+
+ion-radio {
+    --border-radius: 4px;
+    --inner-border-radius: 4px;
+    --color: #fff;
+    --color-checked: #fff;
+    margin: 0px 8px;
+}
+ion-radio.ios {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #fff;
+    border-radius: 4px;
+}
+
+.radio-checked.ios {
+    border-color: #fff;
 }

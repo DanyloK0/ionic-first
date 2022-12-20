@@ -1,14 +1,19 @@
-ion-label{
-    color: #fff;
+ion-input {
+    --color: #fff;
+    --border-bottom: solid #fff 1px;
+    --margin-bottom: 16px;
 }
-
 .double-row{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-bottom: 16px;
+}
 
+.password{
+    display: flex;
+    justify-content: space-between;
 }
 
 .centered{
@@ -18,9 +23,9 @@ ion-label{
     margin-bottom: 16px;
     align-items: flex-end;
 }
-.title{
-    display: flex;
-    justify-content: center;
+.text{
+    color:#fff;
+    text-align: center;
 }
 
 ion-item{
@@ -29,10 +34,12 @@ ion-item{
     border: 0;
 }
 
-ion-input {
-    --color: #fff;
-    --border-bottom: solid #fff 1px;
-    --margin-bottom: 16px;
+ion-button {
+    --background: #c34a27;
+}
+
+ion-icon{
+    color: #fff;
 }
 
 

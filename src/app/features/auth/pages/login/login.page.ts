@@ -11,6 +11,8 @@ import { UtilityService } from 'src/app/shared/services/utility.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  pwdIcon = "eye-outline";
+  showPwd = false;
   loginForm: FormGroup = new FormGroup<any>({});
   forgotForm: FormGroup = new FormGroup<any>({});
 
@@ -21,13 +23,18 @@ export class LoginPage implements OnInit {
     private utilityService: UtilityService
   ) {}
 
+  togglePwd() {
+    this.showPwd = !this.showPwd;
+    this.pwdIcon = this.showPwd ? "eye-off-outline" : "eye-outline";
+  }
+
   ngOnInit(): void {
     this.initForm();
   }
 
   initForm() {
     this.loginForm = this.formBuilder.group({
-      username: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     });
 

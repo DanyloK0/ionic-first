@@ -18,24 +18,23 @@ ion-checkbox {
     margin-left: 8px;
 }
 
-ion-input{
-    color: #fff;
-    border-bottom: solid #fff;
-    margin-bottom: 16px;
-}
-
-ion-label{
-    color: #fff;
-}
 
 .double-row{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
-.first-element{
-    display: flex;
-    width: 50%;
-    align-items: center;
+
+
+ion-item{
+    --background: #de542c;
+    --color:#fff;
+    border: 0;
+}
+
+ion-input {
+    --color: #fff;
+    --border-bottom: solid #fff 1px;
+    --margin-bottom: 16px;
 }
