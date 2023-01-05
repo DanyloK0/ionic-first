@@ -65,6 +65,13 @@ export class LoginPage implements OnInit {
       console.log(data)
     });
   }
+
+  // logOut() {
+  //   this.authService.logOut().subscribe(() => {
+  //     this.router.navigate(['/auth'])
+  //     localStorage.removeItem('token')
+  //   })
+  // }
 }
 
 
