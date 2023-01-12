@@ -13,6 +13,8 @@ import { environment } from 'src/environments/environment';
 export class RestaurantsPage {
   private mapbox: mapboxgl.Map;
   restaurants: any[] = [];
+  public results = [...this.restaurants];
+
 
   constructor( private service: CrudService, private loadingCtrl: LoadingController ) {
 		mapboxgl.accessToken = environment.mapbox.accessToken;
@@ -26,9 +28,8 @@ export class RestaurantsPage {
 
   ngOnInit(){
 
-    this.printCurrentPosition();
+    // this.printCurrentPosition();
     this.getAllRestaurants();
-
     this.mapbox = new mapboxgl.Map({
 			container: 'mapbox',
 			style: `mapbox://styles/danylok/clbmhb2fo000816qtvn3m9vdl`,
@@ -39,17 +40,20 @@ export class RestaurantsPage {
     
   }
 
+  
   async getAllRestaurants() {
     const loading = await this.loadingCtrl.create({
       message: 'Loading...',
       spinner: 'bubbles',
     });
     await loading.present();
-
+    
     this.service.getRestaurants().subscribe({
       next: (data: any) => {
         loading.dismiss()
         this.restaurants = data.list;
+        console.log(this.restaurants)
+        this.results = [...this.restaurants];
       },
       error: (err: any) => {
         loading.dismiss();
@@ -57,6 +61,13 @@ export class RestaurantsPage {
       }
     })
   }
+
+  handleChange(event) {
+    const query = event.target.value.toLowerCase();
+    this.results = this.restaurants.filter(d => d.name.toLowerCase().indexOf(query) > -1);
+    console.log(this.results)
+  }
+
 
   loadMore(event: InfiniteScrollCustomEvent){
     this.getAllRestaurants();
