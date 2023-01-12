@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
 import { CrudService } from 'src/app/shared/services/crud.service';
 import * as mapboxgl from 'mapbox-gl';
+import { Geolocation } from '@capacitor/geolocation';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -17,7 +18,15 @@ export class RestaurantsPage {
 		mapboxgl.accessToken = environment.mapbox.accessToken;
   }
 
+
+  printCurrentPosition = async () => {
+    const coordinates = await Geolocation.getCurrentPosition();
+    console.log('Current position:', coordinates);
+};
+
   ngOnInit(){
+
+    this.printCurrentPosition();
     this.getAllRestaurants();
 
     this.mapbox = new mapboxgl.Map({

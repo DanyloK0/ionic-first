@@ -47,6 +47,7 @@ export class LoginPage implements OnInit {
   send(form: any) {
 
     if(form.valid) {
+      console.log(form)
       this.authService.login(form).subscribe((data: any )=> {
         const token = data.headers.get('Authorization');
         localStorage.setItem('token',token);

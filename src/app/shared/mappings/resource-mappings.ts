@@ -6,16 +6,11 @@
 // import {Credit} from "../../features/credit/models/credit.model";
 // import {Tutorial} from "../../features/tutorial/models/tutorial.model";
 
-import { Admin } from "src/app/features/admin/models/admin";
 import { User } from "src/app/features/profile/models/user.model";
 import { Restaurant } from "src/app/features/restaurants/models/reasturant.model";
 
 export const urlMapping: { [k: string]: MappingConfig } = {
-  '/admin': {
-    model: Admin,
-    api: 'admin',
-    mask: ''
-  },
+
   '/restaurants': {
     model: Restaurant,
     api: 'restaurant',

@@ -1,8 +1,0 @@
-<form [formGroup]="form">
-  <mat-form-field class="fullWidth">
-    <mat-label>{{ key.label }}</mat-label>
-    <mat-select matNativeControl formControlName="{{ key.key }}">
-      <mat-option [value]="data.id" *ngFor="let data of key.fieldConfig.options">{{data.name}}</mat-option>
-    </mat-select>
-  </mat-form-field>
-</form>

@@ -7,8 +7,8 @@
                         </ion-avatar>
 
                 </div>
-                <ion-card-title class="title">{{detail?.restaurantName}}<ion-chip color="warning"></ion-chip></ion-card-title>
-                <ion-card-content class="adress">{{detail?.restaurantAddress}}</ion-card-content>
+                <ion-card-title class="title">{{detail?.restaurantName}} Ristorantino<ion-chip color="warning">400m</ion-chip></ion-card-title>
+                <ion-card-content class="adress">{{detail?.restaurantAddress}}  Via Imperia 3</ion-card-content>
         </ion-card>
 
         <ion-card class="card">
@@ -20,9 +20,9 @@
                                 </ion-avatar>
                                 </ion-col>
                                 <ion-col size="10">
-                                <ion-card-title class="title">{{detail?.restaurantName}}<ion-chip color="warning">342m</ion-chip></ion-card-title>
+                                <ion-card-title class="title">{{detail?.restaurantName}} Ristorantino<ion-chip color="warning">300m</ion-chip></ion-card-title>
                                 <ion-card-content class="adress">
-                                        {{detail?.restaurantAddress}}
+                                        {{detail?.restaurantAddress}} Via Imperia 3
                                 </ion-card-content>
                                 </ion-col>
                         </ion-row>
@@ -33,7 +33,7 @@
                 <ion-grid>
                         <ion-row>
                                 <ion-datetime-button datetime="datetime"></ion-datetime-button>
-                                <ion-datetime-button datetime="time"></ion-datetime-button>
+                                <!-- <ion-datetime-button datetime="time"></ion-datetime-button> -->
                         </ion-row>
                 </ion-grid>
         </h1>
@@ -52,40 +52,27 @@
                         <ion-datetime id="datetime" presentation="date" [firstDayOfWeek]="1"></ion-datetime>
                 </ng-template>
         </ion-modal>
+        
+        <ion-modal [keepContentsMounted]="true">
+                <ng-template> 
+                        <ion-datetime id="time" presentation="time" ></ion-datetime>
+                </ng-template>
+        </ion-modal>
 
         <ion-card>
-                <ion-grid>
-                        <ion-row>
-                                <ion-col>
-                                        <p>Servizio</p>
-                                </ion-col>
-                                <ion-col>
-                                        <ion-list>
-                                                <ion-item>
-                                                        <ion-select interface="action-sheet" placeholder="Seleziona il Servizio">
-                                                                <ion-select-option value="Colazione">Colazione</ion-select-option>
-                                                                <ion-select-option value="Pranzo">Pranzo</ion-select-option>
-                                                                <ion-select-option value="Aperitivo">Aperitivo</ion-select-option>
-                                                                <ion-select-option value="Cena">Cena</ion-select-option>
-                                                        </ion-select>
-                                                </ion-item>
-                                        </ion-list>
-                                </ion-col>
-                        </ion-row>
-                        <ion-row>
-                                <ion-col>
-                                        <p>Orario</p>
-                                </ion-col>
-                                <ion-col>
-                                        <h1><ion-datetime-button datetime="time"></ion-datetime-button></h1>
-                                        <ion-modal [keepContentsMounted]="true">
-                                                <ng-template> 
-                                                        <ion-datetime id="time" presentation="time" ></ion-datetime>
-                                                </ng-template>
-                                        </ion-modal>
-                                </ion-col>
-                        </ion-row>
-                </ion-grid>
+                <ion-list>
+                        <ion-item>
+                                <ion-select interface="action-sheet" placeholder="Seleziona il Servizio">
+                                        <ion-select-option value="Colazione">Colazione</ion-select-option>
+                                        <ion-select-option value="Pranzo">Pranzo</ion-select-option>
+                                        <ion-select-option value="Aperitivo">Aperitivo</ion-select-option>
+                                        <ion-select-option value="Cena">Cena</ion-select-option>
+                                </ion-select>
+                        </ion-item>
+                        <ion-item>
+                                <ion-datetime-button datetime="time"></ion-datetime-button>
+                        </ion-item>
+                </ion-list>
         </ion-card>
         <!-- <ion-datetime  minuteValues="0,15,30,45">  -->
                 <!-- <span slot="title">Select a Reservation Date</span> -->

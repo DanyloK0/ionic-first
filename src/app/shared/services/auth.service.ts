@@ -24,7 +24,7 @@ export class AuthService {
 
   login(form: any){
     const body = {
-      email: form.value.username,
+      email: form.value.email,
       password: form.value.password
     }
     return this.http.post<any>(`${this.apiUrl}authentication/login`, body, {
